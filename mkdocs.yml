@@ -1,0 +1,74 @@
+site_name: Grazziotin Energia Solar
+site_description: Sistema de gerenciamento web para Grazziotin Energia Solar
+site_author: Grazziotin Energia Solar
+site_url: https://grazziotin-solar-energy.com
+
+repo_name: corpsolutionsdev/corp-grazziotin-solar-energy
+repo_url: https://github.com/corpsolutionsdev/corp-grazziotin-solar-energy
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: orange
+      accent: orange
+      toggle:
+        icon: material/brightness-auto
+        name: Alternar tema
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+
+nav:
+  - Início: index.md
+  - Guia de Instalação:
+    - Pré-requisitos: installation/prerequisites.md
+    - Instalação: installation/installation.md
+    - Configuração: installation/configuration.md
+  - Desenvolvimento:
+    - Estrutura do Projeto: development/project-structure.md
+    - Configurações: development/settings.md
+    - Modelos: development/models.md
+    - Views: development/views.md
+    - Templates: development/templates.md
+  - Módulos:
+    - App Principal: modules/app.md
+    - Blog: modules/blog.md
+    - Projetos: modules/projects.md
+    - Representantes: modules/representatives.md
+  - Admin:
+    - Painel Administrativo: admin/dashboard.md
+    - Gerenciamento de Conteúdo: admin/content-management.md
+  - Deploy:
+    - Produção: deploy/production.md
+    - Manutenção: deploy/maintenance.md
+  - Contribuição:
+    - Como Contribuir: contributing/contributing.md
+    - Padrões de Código: contributing/coding-standards.md
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - meta
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.twemoji
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      pygments_lang_class: true
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+plugins:
+  - search:
+      lang: pt

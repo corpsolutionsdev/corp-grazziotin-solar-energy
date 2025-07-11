@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Quem Somos - Grazziotin Energia Solar{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 hero-content">
+                <h1 class="display-4 fw-bold mb-4">
+                    Quem Somos
+                </h1>
+                <p class="lead mb-4">
+                    Conheça a Grazziotin Energia Solar e nossa missão de transformar 
+                    o futuro energético do Brasil através da energia solar fotovoltaica.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                {% if quem_somos %}
+                <img src="{{ quem_somos.imagem.url }}" alt="Grazziotin Energia Solar" 
+                     class="img-fluid rounded-custom shadow-custom">
+                {% else %}
+                <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Energia Solar" class="img-fluid rounded-custom shadow-custom">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+{% if quem_somos %}
+<section class="section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="section-title text-start">{{ quem_somos.titulo }}</h2>
+                <div class="lead">
+                    {{ quem_somos.descricao|linebreaks }}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img src="{{ quem_somos.imagem.url }}" alt="{{ quem_somos.titulo }}" 
+                     class="img-fluid rounded-custom shadow-custom">
+            </div>
+        </div>
+    </div>
+</section>
+{% else %}
+<section class="section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="section-title text-start">Quem Somos</h2>
+                <div class="lead">
+                    <p>
+                        A Grazziotin Energia Solar é uma subdivisão da Grazziotin engenharia, a qual atua na área de energia elétrica desde 1992, com a elaboração de projetos elétricos residenciais, comerciais, eletrificação rural, iluminação esportiva e SPDA – Sistema de Proteção contra Descargas Atmosféricas, além de possuir uma enorme experiência comercial e administrativa no segmento varejista-atacadista de materiais elétricos. A Grazziotin Energia Solar, surgiu como forma de acompanhar os avanços tecnológicos trazidos pela constante preocupação com a Sustentabilidade e o Meio Ambiente. Sua atuação está focada na Micro e Mini geração Fotovoltaica, em análise energética, projetos, instalações e pós-venda de SFVCR – Sistemas Fotovoltaicos Conectados à Rede Pública de Energia Elétrica (On-gride), e SFVI – Sistemas Fotovoltaicos Isolados da Rede Pública de Energia Elétrica (Off-gride), em todo o todo território Brasileiro.
+                    </p>
+                    <p>
+                        Estamos aptos a atender e servir nossos clientes da melhor maneira possível. Nossa equipe é composta por engenheiros com mestrado em sistemas de energia pela UTFPR/Curitiba, especialização em qualidade e conservação de energia pela UFSC, com mais de 20 anos de experiência em projetos e instalações elétricas de pequeno e médio porte, possuindo todas as condições de, através de soluções inovadoras e conscientes, passar as informações necessárias para que você se sinta seguro e confortável em saber que tomou a decisão correta na sua escolha.
+                    </p>
+                    <p>
+                        A equipe que irá instalar seu sistema fotovoltaico é composta por eletricistas e auxiliares com grande experiência em instalações elétricas de média e baixa tensão. Esta equipe tem todo o apoio e segurança garantidos pela Grazziotin, possuindo todos os requisitos necessários para executar uma instalação limpa, segura e livre de falhas. É supervisionada, in loco, por engenheiros eletricistas da Grazziotin.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Energia Solar" class="img-fluid rounded-custom shadow-custom">
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Values Section -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="section-title">Nossos Valores</h2>
+            </div>
+        </div>
+        <div class="row g-3">
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <h4>Liderança em Negócios</h4>
+                    <p>Somos pioneiros e inovadores. Equipe formada por engenheiros e especialistas em energia solar.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-tree"></i>
+                    </div>
+                    <h4>Segurança & Sustentabilidade
+                    </h4>
+                    <p>Energia Solar por si só já é sinônimo de sustentabilidade. Nos levamos a sustentabilidade adiante.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h4>Oportunidades</h4>
+                    <p>A Grazziotin Energia Solar está sempre aberta a novos integradores ampliando e agregando valores.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+{% if representantes %}
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="section-title">Nossa Equipe</h2>
+                <p class="text-center lead mb-5">
+                    Conheça os profissionais que fazem a diferença na Grazziotin Energia Solar
+                </p>
+            </div>
+        </div>
+        <div class="row g-4">
+            {% for representante in representantes %}
+            <div class="col-lg-4 col-md-6">
+                <div class="card team-card h-100">
+                    <div class="card-body text-center">
+                        <img src="{{ representante.foto.url }}" alt="{{ representante.nome }}" 
+                             class="team-photo mb-3">
+                        <h5 class="card-title">{{ representante.nome }}</h5>
+                        <div class="contact-info">
+                            <p class="mb-2">
+                                <i class="fas fa-map-marker-alt me-2 text-primary"></i>
+                                {{ representante.endereco|linebreaksbr }}
+                            </p>
+                            <p class="mb-2">
+                                <i class="fas fa-phone me-2 text-primary"></i>
+                                <a href="tel:{{ representante.telefone }}" class="text-decoration-none">
+                                    {{ representante.telefone }}
+                                </a>
+                            </p>
+                            {% if representante.email %}
+                            <p class="mb-2">
+                                <i class="fas fa-envelope me-2 text-primary"></i>
+                                <a href="mailto:{{ representante.email }}" class="text-decoration-none">
+                                    {{ representante.email }}
+                                </a>
+                            </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- CTA Section -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="mb-4">Conheça Nossos Projetos</h2>
+                <p class="lead mb-4">
+                    Veja alguns dos projetos que realizamos e como transformamos 
+                    a vida de nossos clientes com energia solar.
+                </p>
+                <div class="d-flex gap-3 justify-content-center flex-wrap">
+                    <a href="{% url 'projetos' %}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-solar-panel me-2"></i>Ver Projetos
+                    </a>
+                    <a href="{% url 'contato' %}" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-phone me-2"></i>Fale Conosco
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

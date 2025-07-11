@@ -1,0 +1,54 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_DB: grazziotin_db
+      POSTGRES_USER: grazziotin_user
+      POSTGRES_PASSWORD: grazziotin_pass
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - internal
+
+  web:
+    build: .
+    command: gunicorn core.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - .:/app
+      - static_volume:/app/staticfiles
+    env_file:
+      - .env
+    environment:
+      - DEBUG=0
+      - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+      - DJANGO_DB_HOST=db
+      - DJANGO_DB_NAME=grazziotin_db
+      - DJANGO_DB_USER=grazziotin_user
+      - DJANGO_DB_PASSWORD=grazziotin_pass
+    depends_on:
+      - db
+    networks:
+      - internal
+
+  nginx:
+    image: nginx:1.25
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - static_volume:/app/staticfiles
+    depends_on:
+      - web
+    networks:
+      - internal
+
+volumes:
+  postgres_data:
+  static_volume:
+
+networks:
+  internal:
+    driver: bridge 

@@ -1,0 +1,233 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ artigo.titulo }} - Grazziotin Energia Solar{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 hero-content">
+                <h1 class="display-4 fw-bold mb-4">
+                    {{ artigo.titulo }}
+                </h1>
+                <p class="lead mb-4">
+                    {{ artigo.descricao }}
+                </p>
+                <div class="d-flex gap-3">
+                    <a href="{% url 'blog' %}" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-arrow-left me-2"></i>Voltar ao Blog
+                    </a>
+                    <a href="{% url 'contato' %}" class="btn btn-light btn-lg">
+                        <i class="fas fa-phone me-2"></i>Solicitar Orçamento
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img src="{{ artigo.imagem.url }}" alt="{{ artigo.titulo }}" 
+                     class="img-fluid rounded-custom shadow-custom">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Article Content Section -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="article-meta mb-4">
+                            <div class="d-flex align-items-center text-muted">
+                                <i class="fas fa-calendar me-2"></i>
+                                <span>{{ artigo.data_publicacao|date:"d/m/Y" }}</span>
+                                <span class="mx-3">•</span>
+                                <i class="fas fa-clock me-2"></i>
+                                <span>{{ artigo.data_atualizacao|date:"d/m/Y" }}</span>
+                            </div>
+                        </div>
+                        
+                        <div class="article-content">
+                            {{ artigo.descricao|linebreaks }}
+                        </div>
+                        
+                        <hr class="my-4">
+                        
+                        <div class="article-tags">
+                            <h6 class="mb-3">Tags:</h6>
+                            <span class="badge bg-primary me-2">Energia Solar</span>
+                            <span class="badge bg-primary me-2">Sustentabilidade</span>
+                            <span class="badge bg-primary me-2">Economia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4">
+                            <i class="fas fa-share-alt me-2 text-primary"></i>
+                            Compartilhar
+                        </h4>
+                        
+                        <div class="d-grid gap-2">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" 
+                               class="btn btn-outline-primary" target="_blank">
+                                <i class="fab fa-facebook-f me-2"></i>Facebook
+                            </a>
+                            <a href="https://twitter.com/intent/tweet?text={{ artigo.titulo }}&url={{ request.build_absolute_uri }}" 
+                               class="btn btn-outline-info" target="_blank">
+                                <i class="fab fa-twitter me-2"></i>Twitter
+                            </a>
+                            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri }}" 
+                               class="btn btn-outline-secondary" target="_blank">
+                                <i class="fab fa-linkedin-in me-2"></i>LinkedIn
+                            </a>
+                            <a href="https://api.whatsapp.com/send?text={{ artigo.titulo }}%20{{ request.build_absolute_uri }}" 
+                               class="btn btn-outline-success" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4">
+                            <i class="fas fa-info-circle me-2 text-primary"></i>
+                            Sobre a Grazziotin
+                        </h4>
+                        
+                        <p class="card-text">
+                            Especialistas em energia solar fotovoltaica, oferecendo soluções sustentáveis 
+                            e econômicas para sua casa ou empresa.
+                        </p>
+                        
+                        <div class="text-center">
+                            <a href="{% url 'contato' %}" class="btn btn-primary btn-lg w-100 mb-2">
+                                <i class="fas fa-phone me-2"></i>Solicitar Orçamento
+                            </a>
+                            <a href="tel:+5542999751219" class="btn btn-outline-primary w-100">
+                                <i class="fas fa-phone me-2"></i>(42) 99975-1219
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related Articles Section -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="section-title">Artigos Relacionados</h2>
+                <p class="text-center lead mb-5">
+                    Leia também outros artigos sobre energia solar
+                </p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="card blog-card h-100">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         class="card-img-top" alt="Como funciona a energia solar">
+                    <div class="card-body">
+                        <div class="blog-meta mb-2">
+                            <i class="fas fa-calendar me-1"></i>
+                            15/01/2024
+                        </div>
+                        <h5 class="card-title">Como funciona a energia solar</h5>
+                        <p class="card-text">Entenda o processo de geração de energia através dos painéis solares.</p>
+                        <a href="{% url 'blog' %}" class="btn btn-outline-primary">Ler Mais</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card blog-card h-100">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         class="card-img-top" alt="Economia com energia solar">
+                    <div class="card-body">
+                        <div class="blog-meta mb-2">
+                            <i class="fas fa-calendar me-1"></i>
+                            10/01/2024
+                        </div>
+                        <h5 class="card-title">Economia com energia solar</h5>
+                        <p class="card-text">Descubra como economizar até 95% na sua conta de energia.</p>
+                        <a href="{% url 'blog' %}" class="btn btn-outline-primary">Ler Mais</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card blog-card h-100">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         class="card-img-top" alt="Manutenção de sistemas solares">
+                    <div class="card-body">
+                        <div class="blog-meta mb-2">
+                            <i class="fas fa-calendar me-1"></i>
+                            05/01/2024
+                        </div>
+                        <h5 class="card-title">Manutenção de sistemas solares</h5>
+                        <p class="card-text">Dicas essenciais para manter seu sistema solar funcionando perfeitamente.</p>
+                        <a href="{% url 'blog' %}" class="btn btn-outline-primary">Ler Mais</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="section bg-gradient text-white">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="mb-4">Fique por dentro das novidades</h2>
+                <p class="lead mb-4">
+                    Inscreva-se para receber as últimas notícias sobre energia solar 
+                    e dicas de economia diretamente no seu e-mail.
+                </p>
+                <form class="row g-3 justify-content-center">
+                    <div class="col-md-8">
+                        <input type="email" class="form-control form-control-lg" 
+                               placeholder="Seu melhor e-mail" required>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-light btn-lg w-100">
+                            <i class="fas fa-paper-plane me-2"></i>Inscrever
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="mb-4">Quer saber mais sobre energia solar?</h2>
+                <p class="lead mb-4">
+                    Entre em contato conosco e descubra como a energia solar pode 
+                    transformar sua vida financeira e contribuir para um futuro sustentável.
+                </p>
+                <div class="d-flex gap-3 justify-content-center flex-wrap">
+                    <a href="{% url 'contato' %}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-phone me-2"></i>Solicitar Orçamento
+                    </a>
+                    <a href="https://api.whatsapp.com/send/?phone=%2B5542999751219&text=Ol%C3%A1%2C+gostaria+de+maiores+informa%C3%A7%C3%B5es&type=phone_number&app_absent=0" 
+                       class="btn btn-outline-primary btn-lg" target="_blank">
+                        <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

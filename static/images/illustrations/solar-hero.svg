@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" class="solar-hero-illustration">
+  <defs>
+    <linearGradient id="sunGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f39c12;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="panelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2c3e50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#34495e;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Sun with animation -->
+  <circle cx="650" cy="150" r="60" fill="url(#sunGradient)" filter="url(#glow)">
+    <animate attributeName="r" values="60;70;60" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Sun rays -->
+  <g class="sun-rays">
+    <line x1="650" y1="90" x2="650" y2="60" stroke="#f39c12" stroke-width="4" opacity="0.7">
+      <animate attributeName="stroke-width" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="650" y1="210" x2="650" y2="240" stroke="#f39c12" stroke-width="4" opacity="0.7">
+      <animate attributeName="stroke-width" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="590" y1="150" x2="560" y2="150" stroke="#f39c12" stroke-width="4" opacity="0.7">
+      <animate attributeName="stroke-width" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="710" y1="150" x2="740" y2="150" stroke="#f39c12" stroke-width="4" opacity="0.7">
+      <animate attributeName="stroke-width" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  
+  <!-- Solar Panels -->
+  <g class="solar-panels">
+    <!-- Panel 1 -->
+    <rect x="150" y="300" width="180" height="120" fill="url(#panelGradient)" rx="8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="4s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="160" y="310" width="160" height="100" fill="#34495e" rx="5"/>
+    <rect x="170" y="320" width="30" height="22" fill="#27ae60" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="210" y="320" width="30" height="22" fill="#27ae60" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+    </rect>
+    <rect x="250" y="320" width="30" height="22" fill="#27ae60" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" begin="1s"/>
+    </rect>
+    <rect x="290" y="320" width="30" height="22" fill="#27ae60" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+    </rect>
+    
+    <!-- Panel 2 -->
+    <rect x="370" y="300" width="180" height="120" fill="url(#panelGradient)" rx="8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="4s" repeatCount="indefinite" begin="1s"/>
+    </rect>
+    <rect x="380" y="310" width="160" height="100" fill="#34495e" rx="5"/>
+    <rect x="390" y="320" width="30" height="22" fill="#27ae60" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+    </rect>
+    <rect x="430" y="320" width="30" height="22" fill="#27ae60" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" begin="0.8s"/>
+    </rect>
+    <rect x="470" y="320" width="30" height="22" fill="#27ae60" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" begin="1.3s"/>
+    </rect>
+    <rect x="510" y="320" width="30" height="22" fill="#27ae60" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" begin="1.8s"/>
+    </rect>
+  </g>
+  
+  <!-- Energy flow lines -->
+  <g class="energy-flow">
+    <path d="M 650 150 Q 500 200 400 360" stroke="#27ae60" stroke-width="3" fill="none" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-dasharray" values="0,150;150,0;0,150" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 650 150 Q 450 250 300 360" stroke="#27ae60" stroke-width="3" fill="none" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite" begin="1s"/>
+      <animate attributeName="stroke-dasharray" values="0,150;150,0;0,150" dur="3s" repeatCount="indefinite" begin="1s"/>
+    </path>
+  </g>
+  
+  <!-- House -->
+  <g class="house">
+    <rect x="200" y="420" width="300" height="150" fill="#8b4513" rx="8"/>
+    <polygon points="200,420 350,320 500,420" fill="#a0522d"/>
+    <rect x="240" y="480" width="45" height="60" fill="#87ceeb"/>
+    <rect x="300" y="480" width="45" height="60" fill="#87ceeb"/>
+    <rect x="360" y="480" width="45" height="60" fill="#87ceeb"/>
+    <rect x="420" y="480" width="45" height="60" fill="#87ceeb"/>
+  </g>
+  
+  <!-- Energy meter -->
+  <g class="energy-meter">
+    <rect x="550" y="420" width="120" height="90" fill="#2c3e50" rx="8"/>
+    <circle cx="610" cy="465" r="30" fill="#27ae60" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="610" y="472" text-anchor="middle" fill="white" font-size="16" font-weight="bold">kW</text>
+  </g>
+  
+  <!-- Floating particles -->
+  <g class="particles">
+    <circle cx="80" cy="80" r="3" fill="#f39c12" opacity="0.6">
+      <animate attributeName="cy" values="80;50;80" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="720" cy="220" r="3" fill="#f39c12" opacity="0.6">
+      <animate attributeName="cy" values="220;190;220" dur="4s" repeatCount="indefinite" begin="1s"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    <circle cx="150" cy="520" r="3" fill="#f39c12" opacity="0.6">
+      <animate attributeName="cy" values="520;490;520" dur="4s" repeatCount="indefinite" begin="2s"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite" begin="2s"/>
+    </circle>
+  </g>
+</svg>
