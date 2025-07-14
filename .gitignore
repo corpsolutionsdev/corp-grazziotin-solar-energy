@@ -6,6 +6,13 @@ __pycache__/
 # C extensions
 *.so
 
+# Folders Migrations
+app/migrations/
+blog/migrations/
+projects/migrations/
+representatives/migrations/
+db.sqlite3
+
 # Distribution / packaging
 .Python
 build/

@@ -7,6 +7,7 @@ class Artigo(models.Model):
     slug = models.SlugField(
         max_length=200, 
         unique=True, 
+        blank=True,
         verbose_name="Slug",
         help_text="Versão amigável da URL do artigo. Ex: 'como-instalar-paineis-solares' para o título 'Como Instalar Painéis Solares'. Deixe em branco para gerar automaticamente."
     )
@@ -23,3 +24,9 @@ class Artigo(models.Model):
 
     def __str__(self):
         return self.titulo
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            from django.utils.text import slugify
+            self.slug = slugify(self.titulo)
+        super().save(*args, **kwargs)
